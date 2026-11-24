@@ -1,0 +1,26 @@
+name: Save Squarespace images
+
+# Run this once from the Actions tab (Run workflow) before cancelling Squarespace.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/save-squarespace-images.js
+      - name: Commit images
+        if: always()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add src/images
+          git diff --cached --quiet || git commit -m "Save images from Squarespace"
+          git push
