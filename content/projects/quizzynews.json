@@ -1,0 +1,18 @@
+{
+  "title": "Quizzy.News",
+  "slug": "quizzynews",
+  "section": "Self-launched",
+  "order": 1,
+  "published": true,
+  "has_page": true,
+  "live_url": "https://www.quizzy.news",
+  "live_label": "Play the game",
+  "summary": "A daily news trivia game I designed and launched to help teens and adults keep up with current events from reputable sources.",
+  "cover": "/images/quizzynews/quizzynews-thumb.png",
+  "cover_alt": "Quizzy.News screens",
+  "intro": "Quizzy.News is a short daily quiz on national and global news from the last 24 hours, made for people who love a quick game like Wordle. I took it from concept to launch: research, design, testing, and leading a volunteer team of developers to build it.",
+  "duration": "2022 – 2025",
+  "role": "Founder and Lead Product Designer",
+  "links": [],
+  "body": "## Why I built it\n\nAs a teacher, I watched students arrive each morning repeating misinformation from social media. According to the American Psychological Association, fewer than 20% of US teens read a book, magazine or newspaper daily for pleasure, while more than 80% use social media every day. Quizzy.News is my answer: a fun, quick way to stay up to date from reputable sources.\n\n## Testing the game\n\nI interviewed people of different ages and news habits. Most cared about the news but worried about which sources to trust, and said they’d keep up more if it were fun. I then ran a moderated usability study with five participants on a low-fidelity prototype, testing the flow, the 60-second timer, question length and the number of answers.\n\n![Low fidelity prototype](/images/quizzynews/lo-fi-prototype-3.gif)\n![Low fidelity prototype](/images/quizzynews/lo-fi-prototype-2.gif)\n\n*The low-fidelity prototype.*\n\n## What changed\n\nThree findings shaped the final design: clearer wording, with details like dates in view; a score that’s always visible; and more to do at the end, like reading further and sharing results.\n\n![Before usability study](/images/quizzynews/mockup-slide-1-a.png)\n![After usability study](/images/quizzynews/mockup-slide-1-b.png)\n\n*Question wording, before (left) and after (right) testing.*\n\n![Before usability study](/images/quizzynews/mockup-slide-2-a.png)\n![After usability study](/images/quizzynews/mockup-slide-2-b.png)\n\n*The score and results page, before (left) and after (right).*\n\n![First high fidelity screens](/images/quizzynews/first-hi-fi-screens.png)\n\n*High-fidelity screens.*\n\nColor contrast works for people with low vision, and right and wrong answers are marked with icons as well as color.\n\n![Responsive screens](/images/quizzynews/responsive-screens.png)\n\n*Mobile, tablet and desktop.*\n\n## Outcome\n\nI took Quizzy.News from concept to launch, leading a volunteer team of three-plus developers. It’s live at [quizzy.news](https://www.quizzy.news).\n"
+}

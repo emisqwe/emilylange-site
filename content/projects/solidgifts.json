@@ -1,0 +1,18 @@
+{
+  "title": "Solid.gifts",
+  "slug": "solidgifts",
+  "section": "Self-launched",
+  "order": 2,
+  "published": true,
+  "has_page": true,
+  "live_url": "https://solid.gifts",
+  "live_label": "Peruse presents here",
+  "summary": "A curated gift guide I designed and launched with one engineer: describe the person, set a budget, and get useful, unique gift ideas in a few clicks.",
+  "cover": "/images/solidgifts/frame-470.png",
+  "cover_alt": "Solid.gifts screens",
+  "intro": "Solid.gifts is a curated gift guide. Pick a few words that describe the person and a budget, and it suggests useful, lasting gifts in a couple of clicks. I designed it and managed the build with one engineer.",
+  "duration": "2022",
+  "role": "Founder and Product Designer",
+  "links": [],
+  "body": "## Why I built it\n\nGift-giving is stressful: people point to a lack of time and money, and over half say they feel pressure to give ([Ness Labs](https://nesslabs.com/psychology-gift-giving)). Solid.gifts makes finding a meaningful, long-lasting gift take just a few clicks.\n\n## From questionnaire to filter chips\n\nMy first idea was a questionnaire, but answering every question added too much friction up front. I tested filter chips instead, quick tags that describe the person you’re buying for. Getting the labels right meant understanding who people buy gifts for and how they describe them. Early testing also asked for a price filter, so I added one.\n\n![Paper sketches](/images/solidgifts/scn1661958653679.jpg)\n![Wireframes](/images/solidgifts/wireframe.png)\n\n*Paper sketches and early wireframes.*\n\n## Refining the design\n\nAfter a usability critique, I tightened the layout and cut the number of filters so the choices felt lighter. It stayed a single page, with About in a pop-up.\n\n![Mockup transitions](/images/solidgifts/mockuptransitions.png)\n\n*From wireframe to final design.*\n\n![Responsive screens](/images/solidgifts/responsive-screens-1.png)\n\n*Mobile and desktop.*\n\n![Style guide](/images/solidgifts/style-guide-3.png)\n\n*Style guide.*\n\n## Outcome\n\nI took Solid.gifts from idea to launch in a few weeks, working with one engineer from a [written brief](https://phrygian-wolverine-270.notion.site/Brief-cae58ef19cd54ef2baa2109c82deef6b). To speed up curation, I used a [Google Sheets plug-in](https://www.figma.com/community/plugin/735770583268406934/Google-Sheets-Sync) in Figma to fill every gift card with real product data, so the designs and the catalog grew together. It’s live at [solid.gifts](https://solid.gifts).\n"
+}

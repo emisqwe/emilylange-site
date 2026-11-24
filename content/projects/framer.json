@@ -1,0 +1,18 @@
+{
+  "title": "Framer",
+  "slug": "framer",
+  "section": "Work",
+  "order": 9,
+  "published": true,
+  "has_page": true,
+  "live_url": "",
+  "live_label": "",
+  "summary": "Software that helps structural engineers calculate loads on architectural drawings, replacing a maze of reference tables and spreadsheets.",
+  "cover": "/images/framer/framer-thumb.png",
+  "cover_alt": "Framer app screens",
+  "intro": "Framer helps structural engineers calculate loads directly on AutoCAD drawings. Working with the founder and his brother, an architect, I designed the flows that take an engineer from sign-up to a finished, shareable report.",
+  "duration": "Jul – Dec 2023",
+  "role": "Product Designer",
+  "links": [],
+  "body": "## The problem\n\nBefore Framer, engineers worked out loads using an extensive, complicated set of tables and spreadsheets, a different set for each kind of calculation. Framer brings that work onto the drawing itself. My job was to make the product around the calculator easy to start, easy to follow, and easy to share.\n\n## What I designed\n\nI mapped the user flows and built a logical path through everything an engineer needs to enter, so no input gets lost along the way.\n\n- **Sign-up and onboarding**, getting an engineer from the landing page to their first project quickly.\n- **User profiles**, holding the professional details that appear on finished reports.\n- **PDF export**, turning a calculation into a clean report to share with clients and contractors.\n\n## Outcome\n\nI handed off designs for all three flows, giving Framer a complete path from sign-up to a finished report.\n"
+}

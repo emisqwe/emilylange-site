@@ -1,0 +1,20 @@
+{
+  "title": "Vestis Online Store",
+  "slug": "vestis-configurator",
+  "section": "Work",
+  "order": 5,
+  "published": false,
+  "has_page": true,
+  "coming_soon": true,
+  "coming_soon_text": "Just wrapped this project. Hold on tight, the case study is coming soon.",
+  "live_url": "",
+  "live_label": "",
+  "summary": "A new online store and product visualizer for an architectural products manufacturer, alongside keeping its brand consistent across web and print.",
+  "cover": "",
+  "cover_alt": "",
+  "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.",
+  "duration": "Lorem 2026",
+  "role": "Multidisciplinary Designer",
+  "links": [],
+  "body": "## Overview\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n## The Challenge\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n## Process\n\n- Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n- Sed ut perspiciatis unde omnis iste natus error sit voluptatem.\n- Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.\n\nCurabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.\n\n## Outcome\n\nInteger in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor."
+}

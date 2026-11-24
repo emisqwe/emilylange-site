@@ -1,0 +1,10 @@
+{
+  "name": "emilylange-site",
+  "private": true,
+  "description": "Emily Lange portfolio. No dependencies.",
+  "scripts": {
+    "build": "node build.js",
+    "preview": "node build.js && npx --yes serve _site"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "KCM",
+  "slug": "kcm",
+  "section": "Work",
+  "order": 6,
+  "published": true,
+  "has_page": true,
+  "live_url": "",
+  "live_label": "",
+  "summary": "Brought Keeping Current Matters’ mobile-only teleprompter app to desktop, so real estate agents can script, record and share video from any device.",
+  "cover": "/images/kcm/frame-531.png",
+  "cover_alt": "KCM Real Talk desktop designs",
+  "intro": "Real Talk is Keeping Current Matters’ teleprompter and video tool for real estate agents. It only worked on phones. As the lead product designer, I designed the desktop version: scripting, editing and recording workflows for experienced professionals who want making video to be quick and simple.",
+  "duration": "Oct–Dec 2024",
+  "role": "Lead Product Designer",
+  "links": [],
+  "body": "## Key objectives\n\n- Bring the core mobile workflows to desktop without adding complexity.\n- Design for experienced professionals who value simplicity over extra features.\n- Make sharing videos easier, to support upgrades to KCM’s top subscription tier.\n\n## Process\n\nI started with an in-depth review of the mobile app and its audience. From there I moved through wireframes, high-fidelity designs and interactive prototypes, checking each step against KCM’s brand and business goals. The aim was a desktop experience that felt familiar to mobile users while making full use of a larger screen.\n\n## Writing the script\n\nAgents build a script in blocks: lines to read on camera, and images or graphs to show between them. An estimated length updates as they write, so they know how long the video will run before they record.\n\n![Desktop script editor with on-camera and image blocks](/images/kcm/kcm-script-editor.webp)\n\n*The script editor, with on-camera lines and visuals as separate blocks.*\n\n## Recording with a teleprompter\n\nOn mobile, the script scrolls above the camera. On desktop, I turned it into a floating teleprompter that agents can move, resize and slow down or speed up, with the recording controls and estimated time beside it.\n\n![The mobile recording screen next to the new desktop teleprompter](/images/kcm/kcm-record-mobile-desktop.webp)\n\n*Recording on mobile (left) and the new desktop teleprompter (right).*\n\n## Review and trim\n\nAfter recording, agents can watch the take, retake it, trim it or delete it, without leaving the page. Share, Save to My Videos and Download sit together on the right.\n\n![Video review screen with retake, trim and delete](/images/kcm/kcm-review.webp)\n![Trimming a recorded video](/images/kcm/kcm-trim.webp)\n\n*Reviewing a take (left) and trimming it (right).*\n\n## Sharing\n\nSharing works like a familiar shared document: add people by email, set who can view the link, or post straight to Facebook, LinkedIn, TikTok or email, or embed the video on a website.\n\n![Share dialog with people, link access and social channels](/images/kcm/kcm-share.webp)\n\n*Sharing a finished video.*\n\n## Outcome\n\nThe desktop version of Real Talk shipped in January 2025, one month after I handed over the designs.\n"
+}
