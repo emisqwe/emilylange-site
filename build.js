@@ -339,9 +339,8 @@ function projectPage(p, i) {
 function notFound() {
   return layout({ title: 'Page not found', url: '/404.html', bodyClass: 'nf', body: `
 <section class="wrap nf-body">
-  <h1>That page isn’t here.</h1>
-  <p>It may have moved when this site was rebuilt. <a href="/#work">See all work</a> or go to the <a href="/">home page</a>.</p>
-</section>` });
+  <h1>Oops! Didn't mean to land you here.</h1>
+  <p>Check out what I do <a href="/#work">here</a>, or just <a href="/">start at the beginning</a>.</p>
 }
 
 // ---------- write ----------
