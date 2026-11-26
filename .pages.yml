@@ -68,6 +68,25 @@ content:
         label: Home page summary
         type: text
         description: "One or two sentences shown under the project's image on the home page."
+      - name: tagline
+        label: Home page card line
+        type: string
+        description: "One short line on the colored card, e.g. Shipped a month after handoff. Leave empty to use the summary."
+      - name: card_meta
+        label: Card label
+        type: string
+        description: "Optional small text beside the name on the card, e.g. European Space Agency · 2025."
+      - name: card_color
+        label: Card color
+        type: select
+        default: auto
+        options:
+          values: [auto, emerald, peach, blue, yellow, pink, ink, mint]
+      - name: card_wide
+        label: Wide card
+        type: boolean
+        default: false
+        description: "Makes this card two columns wide. Leave off to let the page decide."
       - name: cover
         label: Cover image
         type: image
@@ -123,17 +142,36 @@ content:
       - name: headline
         label: Home page headline
         type: text
+      - name: headline_highlight
+        label: Colorful word in the headline
+        type: string
+        description: "This word's letters are always colored, e.g. learn. Leave empty for none."
       - name: intro
-        label: Home page intro (left column)
+        label: Home page intro
         type: rich-text
         options:
           format: markdown
       - name: intro_aside
-        label: Home page side notes (right column)
+        label: Home page small note
         type: rich-text
         options:
           format: markdown
-        description: "Currently, previously, and self-launched projects. Short paragraphs work best."
+        description: "One short line under the intro, e.g. what you're doing right now."
+      - name: hero_tags
+        label: Home page tags
+        type: string
+        list: true
+        description: "Short outlined labels under the intro."
+      - name: hero_photo
+        label: Home page photo
+        type: image
+      - name: hero_photo_alt
+        label: Home page photo description
+        type: string
+      - name: hero_sticker
+        label: Sticker on the photo
+        type: string
+        description: "Short text on the yellow sticker. Leave empty to hide it."
       - name: work_heading
         label: Work section heading
         type: string
@@ -160,7 +198,7 @@ content:
       - name: clients
         label: Clients and collaborators
         type: text
-        description: "Separate names with commas. Leave empty to hide."
+        description: "Separate names with commas. Shown as a row under the home page intro. Leave empty to hide."
       - name: education_heading
         label: Education heading
         type: string
