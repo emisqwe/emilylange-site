@@ -8,6 +8,8 @@
   "live_url": "",
   "live_label": "",
   "summary": "Software that helps structural engineers calculate loads on architectural drawings, replacing a maze of reference tables and spreadsheets.",
+  "tagline": "Load calculations for structural engineers, right on the drawing.",
+  "card_meta": "2023",
   "cover": "/images/framer/framer-thumb.png",
   "cover_alt": "Framer app screens",
   "intro": "Framer helps structural engineers calculate loads directly on AutoCAD drawings. Working with the founder and his brother, an architect, I designed the flows that take an engineer from sign-up to a finished, shareable report.",

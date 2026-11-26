@@ -188,6 +188,7 @@ ${ogAbs ? `<meta property="og:image" content="${esc(ogAbs)}">\n<meta name="twitt
       <a href="/#work">Work</a>
       <a href="/#about">About</a>
       ${site.resume_url ? `<a href="${esc(site.resume_url)}" target="_blank" rel="noopener">Resume</a>` : ''}
+      <a class="say-hi" href="#contact">Say hi</a>
       <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
@@ -224,8 +225,8 @@ function contactSection() {
   const key = String(site.form_key || '').trim();
 
   return `<section id="contact" class="contact wrap" aria-labelledby="contact-h">
-    <h2 id="contact-h" class="section-h">${esc(site.contact_heading || 'Let’s connect')}</h2>
     <div class="contact-cols">
+      <h2 id="contact-h" class="contact-title">${esc(site.contact_heading || 'Let’s connect')}</h2>
       <div class="contact-body">
         <div class="contact-text">
           ${markdown(site.contact_intro || '')}
@@ -260,48 +261,88 @@ function contactSection() {
   </section>`;
 }
 
-function homePage() {
-  const cardList = (list) => list.map((p) => {
+// Card colors for the home page tiles. "auto" cycles through them in this order.
+const CARD_COLORS = ['emerald', 'peach', 'blue', 'yellow', 'pink', 'ink', 'mint'];
+
+function cardGrid(list, offset = 0) {
+  // Lay cards on a 3-column grid: the first card (and every fifth after it) is wide, and the last card
+  // stretches so the final row has no gap. "Wide card" in the editor forces a wide card.
+  let col = 0;
+  return list.map((p, i) => {
+    let w = p.card_wide === true || (p.card_wide !== false && i % 5 === 0) ? 2 : 1;
+    if (col + w > 3) w = 1;
+    if (i === list.length - 1) w = 3 - col;
+    col = (col + w) % 3;
+    const pick = String(p.card_color || '').toLowerCase();
+    const color = CARD_COLORS.includes(pick) ? pick : CARD_COLORS[(i + offset) % CARD_COLORS.length];
     const href = p.hasPage ? p.url : p.live_url;
     const out = ext(href) ? ' rel="noopener"' : '';
-    const img = p.cover ? `<img src="${esc(imgSrc(p.cover))}" alt="" loading="lazy">` : `<span aria-hidden="true">${esc(p.title)}</span>`;
+    const line = String(p.tagline || p.summary || '').trim();
+    const tilt = w === 1 ? ` tilt-${(i % 2) ? 'r' : 'l'}` : '';
+    const inner = `
+        <span class="card-top"><span class="card-title">${esc(p.title)}</span>${p.card_meta ? `<span class="card-meta">${esc(p.card_meta)}</span>` : ''}</span>
+        ${p.cover ? `<span class="card-img${tilt}"><img src="${esc(imgSrc(p.cover))}" alt="${esc(p.cover_alt || '')}" loading="lazy"></span>` : ''}
+        ${line ? `<span class="card-line">${esc(line)}</span>` : ''}
+        ${p.soon ? `<span class="soon"><span class="soon-dot" aria-hidden="true"></span>${esc(p.soon)}</span>` : ''}`;
     return `
-    <li class="work-item">
-      <div class="work-text">
-        ${href ? `<a class="work-title" href="${esc(href)}"${out}>${esc(p.title)}</a>` : `<span class="work-title">${esc(p.title)}</span>`}
-        ${p.summary ? `<p class="work-sum">${esc(p.summary)}</p>` : ''}
-        ${p.soon ? `<p class="soon"><span class="soon-dot" aria-hidden="true"></span>${esc(p.soon)}</p>` : ''}
-        ${p.live_url ? `<a class="work-live" href="${esc(p.live_url)}" rel="noopener">${esc(p.live_label || 'Visit site')}</a>` : ''}
-      </div>
-      ${href ? `<a class="thumb${p.cover ? '' : ' thumb-empty'}" href="${esc(href)}"${out} tabindex="-1" aria-hidden="true">${img}</a>` : `<span class="thumb${p.cover ? '' : ' thumb-empty'}">${img}</span>`}
-    </li>`; }).join('');
-  const selfList = projects.filter((p) => p.self);
+    <li class="card c-${color} span-${w}">
+      ${href ? `<a class="card-link" href="${esc(href)}"${out}>${inner}</a>` : `<div class="card-link">${inner}</div>`}
+    </li>`;
+  }).join('');
+}
+
+// The highlighted word in the headline gets one color per letter (the same colors as the hover effect).
+function headline() {
+  let h = esc(site.headline || '');
+  h = h.replace(/product designer/i, (m) => m.replace(' ', ' '));
+  return h;
+}
+
+function homePage() {
+  const work = projects.filter((p) => !p.self), selfList = projects.filter((p) => p.self);
+  const tags = (site.hero_tags || []).map((t) => (typeof t === 'string' ? t : t && t.tag)).filter(Boolean);
+  const photo = site.hero_photo;
   const body = `
 <section class="hero wrap">
   <div class="hero-cols">
-    <h1 class="hello">${esc(site.headline).replace(/product designer/i, (m) => m.replace(' ', '\u00a0'))}</h1>
-    <div class="hero-text">${markdown(site.intro)}${site.intro_aside ? markdown(site.intro_aside) : ''}</div>
+    <div class="hero-copy">
+      <h1 class="hello" data-highlight="${esc(site.headline_highlight || '')}">${headline()}</h1>
+      <div class="hero-text">${markdown(site.intro)}${site.intro_aside ? `<div class="hero-aside">${markdown(site.intro_aside)}</div>` : ''}</div>
+      ${tags.length ? `<ul class="chips">${tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+    </div>
+    ${photo ? `<div class="hero-art">
+      <span class="blob" aria-hidden="true"></span>
+      <img class="hero-photo" src="${esc(imgSrc(photo))}" alt="${esc(site.hero_photo_alt || '')}">
+      <svg class="doodle star" aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke-width="3" stroke-linecap="round"><path d="M60 14c3 16 6 28 22 31-16 4-19 15-22 31-3-16-7-27-22-31 15-3 19-15 22-31z"/></svg>
+      <svg class="doodle wave" aria-hidden="true" viewBox="0 0 200 60" fill="none" stroke-width="3" stroke-linecap="round"><path d="M4 34c18-22 30 18 48-4s30-20 44 2 30 18 46-4 28-16 52 0"/></svg>
+      ${site.hero_sticker ? `<span class="sticker">${esc(site.hero_sticker)}</span>` : ''}
+    </div>` : ''}
   </div>
 </section>
+${site.clients ? (() => {
+  // One row of names that drifts slowly sideways. The list is drawn twice so the loop is seamless;
+  // screen readers only get the first copy.
+  const names = site.clients.split(',').map((c) => c.trim()).filter(Boolean).map((c) => `<li>${esc(c)}</li>`).join('');
+  return `<div class="wrap clients"><p class="sr-only">${esc(site.clients_heading || 'Worked with')}</p><div class="clients-view"><div class="clients-track"><ul>${names}</ul><ul aria-hidden="true">${names}</ul></div></div></div>`;
+})() : ''}
 <section id="work" class="work wrap" aria-labelledby="work-h">
-  <h2 id="work-h" class="section-h">${esc(site.work_heading || 'Work')}</h2>
-  <ul class="work-grid">${cardList(projects.filter((p) => !p.self))}
+  <h2 id="work-h" class="section-h">${esc(site.work_heading || 'Selected work')}</h2>
+  <ul class="cards">${cardGrid(work)}
   </ul>
 </section>
-${selfList.length ? `<section id="self-launched" class="work side wrap" aria-labelledby="self-h">
-  <h2 id="self-h" class="section-h">${esc(site.self_heading || 'Self-launched')}</h2>
-  <ul class="work-grid">${cardList(selfList)}
+${selfList.length ? `<section id="self-launched" class="work wrap" aria-labelledby="self-h">
+  <h2 id="self-h" class="section-h">${esc(site.self_heading || 'Made by me')}</h2>
+  <ul class="cards">${cardGrid(selfList, 5)}
   </ul>
 </section>` : ''}
 <section id="about" class="about wrap" aria-labelledby="about-h">
   <h2 id="about-h" class="section-h">${esc(site.about_heading || 'About')}</h2>
-  ${site.about_photo ? `<img class="about-photo" src="${esc(imgSrc(site.about_photo))}" alt="${esc(site.about_photo_alt || '')}" loading="lazy">` : ''}
+  ${site.about_photo ? `<img class="about-photo" src="${esc(imgSrc(site.about_photo))}" alt="${esc(site.about_photo_alt || '')}" loading="lazy">` : '<span></span>'}
   <div class="about-text">
     ${markdown(site.about)}
-    ${site.clients || (site.education || []).length ? `<dl class="facts">
-      ${site.clients ? `<div><dt>${esc(site.clients_heading || 'Worked with')}</dt><dd>${esc(site.clients)}</dd></div>` : ''}
-      ${(site.education || []).filter((e) => e && e.name).length ? `<div><dt>${esc(site.education_heading || 'Education')}</dt><dd>${site.education.filter((e) => e && e.name).map((e) =>
-        `<span class="fact-line"><span class="fact-name">${e.link ? `<a href="${esc(e.link)}" rel="noopener">${esc(e.name)}</a>` : esc(e.name)}</span>${e.detail ? `, ${esc(e.detail)}` : ''}.</span>`).join('')}</dd></div>` : ''}
+    ${(site.education || []).filter((e) => e && e.name).length ? `<dl class="facts">
+      <div><dt>${esc(site.education_heading || 'Education')}</dt><dd>${site.education.filter((e) => e && e.name).map((e) =>
+        `<span class="fact-line"><span class="fact-name">${e.link ? `<a href="${esc(e.link)}" rel="noopener">${esc(e.name)}</a>` : esc(e.name)}</span>${e.detail ? `, ${esc(e.detail)}` : ''}.</span>`).join('')}</dd></div>
     </dl>` : ''}
   </div>
 </section>`;

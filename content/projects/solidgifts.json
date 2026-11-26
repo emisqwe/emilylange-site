@@ -8,6 +8,8 @@
   "live_url": "https://solid.gifts",
   "live_label": "Peruse presents here",
   "summary": "A curated gift guide I designed and launched with one engineer: describe the person, set a budget, and get useful, unique gift ideas in a few clicks.",
+  "tagline": "Describe the person, set a budget, get a gift idea worth keeping.",
+  "card_meta": "2022",
   "cover": "/images/solidgifts/frame-470.png",
   "cover_alt": "Solid.gifts screens",
   "intro": "Solid.gifts is a curated gift guide. Pick a few words that describe the person and a budget, and it suggests useful, lasting gifts in a couple of clicks. I designed it and managed the build with one engineer.",

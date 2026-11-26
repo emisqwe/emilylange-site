@@ -8,6 +8,8 @@
   "live_url": "",
   "live_label": "",
   "summary": "Led the redesign of the Hera space mission’s AI companion, turning live spacecraft telemetry into something anyone can explore.",
+  "tagline": "Live spacecraft telemetry, made readable for anyone.",
+  "card_meta": "European Space Agency · 2025",
   "cover": "/images/hera/hera-thumb-1.png",
   "cover_alt": "Hera.AI interface",
   "intro": "Hera.ai is an AI companion for the European Space Agency’s Hera mission, a spacecraft now on its way to the Didymos asteroid system. Working with [Terra Mater Studios](https://www.terramater.at/) and [Impact.ai](https://www.impact.ai/), I led the redesign of its early web app: the design strategy, the user flows, a visual language aligned with the [European Space Agency](https://www.esa.int/)’s brand, and a development-ready design system. The goal was one experience that works for a curious eight-year-old and a planetary scientist alike.",

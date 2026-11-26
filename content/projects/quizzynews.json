@@ -8,6 +8,8 @@
   "live_url": "https://www.quizzy.news",
   "live_label": "Play the game",
   "summary": "A daily news trivia game I designed and launched to help teens and adults keep up with current events from reputable sources.",
+  "tagline": "A daily news quiz, launched with a volunteer dev team.",
+  "card_meta": "2022",
   "cover": "/images/quizzynews/quizzynews-thumb.png",
   "cover_alt": "Quizzy.News screens",
   "intro": "Quizzy.News is a short daily quiz on national and global news from the last 24 hours, made for people who love a quick game like Wordle. I took it from concept to launch: research, design, testing, and leading a volunteer team of developers to build it.",

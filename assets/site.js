@@ -32,10 +32,16 @@
   var next = 0;
 
   // Screen readers get the plain sentence; the letter spans are visual only.
+  // The word named in the editor ("Colorful word in the headline") keeps one color per letter.
+  var hl = (h1.getAttribute('data-highlight') || '').trim().toLowerCase();
   var visual = text.split(/([ \t\n]+)/).map(function (part) {
     if (/^[ \t\n]+$/.test(part)) return ' ';
+    var bare = part.replace(/[^\p{L}\p{N}'’-]/gu, '').toLowerCase();
+    var k = 0;
     return '<span class="w">' + Array.from(part).map(function (c) {
-      return '<span class="l">' + c.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
+      var keep = hl && bare === hl && /[\p{L}\p{N}]/u.test(c);
+      var style = keep ? ' style="color:' + colors[k++ % colors.length] + '" data-base="' + colors[(k - 1) % colors.length] + '"' : '';
+      return '<span class="l"' + style + '>' + c.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
     }).join('') + '</span>';
   }).join('');
   h1.innerHTML = '<span class="sr-only"></span><span aria-hidden="true">' + visual + '</span>';
@@ -48,7 +54,7 @@
     clearTimeout(el._fade);
     el._fade = setTimeout(function () {
       el.style.transition = 'color 1.1s ease';
-      el.style.color = '';
+      el.style.color = el.getAttribute('data-base') || '';
     }, 300);
   }
   h1.addEventListener('pointerover', function (e) { paint(e.target); });
